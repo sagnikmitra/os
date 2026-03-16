@@ -1,0 +1,1 @@
+ALTER TABLE public.saved_resumes ADD COLUMN IF NOT EXISTS alias text DEFAULT NULL;

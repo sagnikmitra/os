@@ -1,0 +1,1 @@
+ALTER TABLE public.resume_analyses ADD COLUMN IF NOT EXISTS resume_id uuid REFERENCES public.saved_resumes(id) ON DELETE CASCADE;

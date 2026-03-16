@@ -1,0 +1,89 @@
+/* Hidden on screen, visible in print */
+.print-footer {
+  display: none !important;
+}
+
+@media print {
+  /* Hide navigation, sidebar, and app footer */
+  nav,
+  header,
+  aside,
+  footer,
+  [data-sidebar] {
+    display: none !important;
+  }
+
+  /* Hide action buttons but keep transcript toggle visible */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Reset layout to full width */
+  body {
+    background: white !important;
+    color: #111 !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  main,
+  [role="main"],
+  .max-w-4xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  /* Preserve colors and backgrounds */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure cards and borders are visible */
+  .rounded-xl,
+  .rounded-2xl {
+    border: 1px solid #e5e7eb !important;
+    break-inside: avoid;
+  }
+
+  /* Keep colored backgrounds in print */
+  [class*="bg-score-"],
+  [class*="bg-primary"] {
+    background-color: inherit !important;
+  }
+
+  /* Force transcript visible in print by overriding collapsed animation styles */
+  [class*="border-t"] > div,
+  [style*="height: 0"],
+  [style*="height:0"] {
+    height: auto !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* No page break inside major sections */
+  .space-y-8 > * {
+    break-inside: avoid;
+  }
+
+  /* Page footer */
+  .print-footer {
+    display: block !important;
+    text-align: center;
+    font-size: 9px;
+    color: #999;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    padding: 16px 0 4px;
+    margin-top: 32px;
+    border-top: 1px solid #e5e7eb;
+    letter-spacing: 0.05em;
+  }
+
+  @page {
+    margin: 0.5in;
+    size: A4;
+  }
+}

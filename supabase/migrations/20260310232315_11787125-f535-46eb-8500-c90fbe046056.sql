@@ -1,0 +1,1 @@
+DELETE FROM saved_resumes WHERE jsonb_array_length(resume_data->'experience') = 0 AND jsonb_array_length(resume_data->'education') = 0 AND jsonb_array_length(resume_data->'skills') = 0 AND (resume_data->>'summary' IS NULL OR resume_data->>'summary' = '');
